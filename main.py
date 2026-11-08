@@ -13,6 +13,19 @@ messages = [
 ]
 
 
+def estimate_tokens(text):
+    words = len(text.split())
+    return 1.3 * words
+
+
+def count_tokens(messages):
+    return sum(estimate_tokens(message['content']) for message in messages)
+
+
+MAX_TOKEN_BUDGET = 4000
+
+
+
 while True:
     user_question = input("Ask me anything: ")
 
@@ -32,6 +45,14 @@ while True:
         recent_messages = recent_messages[1:]
 
     context = [system_message] + recent_messages
+
+
+    while count_tokens(context) > MAX_TOKEN_BUDGET and len(context) > 3:
+        context.pop(1)
+        context.pop(1)
+        total_tokens = count_tokens(context)
+
+
 
     response = client.chat.completions.create(
         model ='openai/gpt-oss-120b',
