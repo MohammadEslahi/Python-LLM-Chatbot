@@ -10,13 +10,13 @@ dotenv.load_dotenv()
 class ChatBot:
     def __init__(self):
         self.llm = OpenAI(
-            api_key=os.getenv('GROQ_APIT_KEY'),
+            api_key=os.getenv('GROQ_API_KEY'),
             base_url='https://api.groq.com/openai/v1'
         )
 
         self.messages = [
             {'role': 'system', 'content': '''you are a helpful assistant.
-        Your name is neon_bot. in the first response, introduce yourself. give short and concise answers'''}
+        give short and concise answers'''}
         ]
 
         self.total_tokens = 0
