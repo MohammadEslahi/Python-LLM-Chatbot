@@ -32,9 +32,9 @@ class ChatBot:
         system_messages = [m for m in self.messages if m['role'] == 'system']
         other_messages = [m for m in self.messages if m['role'] != 'system']
 
-        trimed_messages = other_messages[-max_number:]
+        trimmed_messages = other_messages[-max_number:]
 
-        self.messages = [*system_messages, *trimed_messages]
+        self.messages = [*system_messages, *trimmed_messages]
 
     def summarize_messages(self):
         if self.iteration % 5 != 0:
