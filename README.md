@@ -26,7 +26,7 @@ A command-line AI chatbot built with Python, Groq API, and Hugging Face Transfor
 1. Clone the repository:
 
    ```bash
-   git clone YOUR_REPOSITORY_URL
+   git clone https://github.com/MohammadEslahi/Python-LLM-Chatbot/blob/main/README.md
    cd YOUR_PROJECT_DIRECTORY
    ```
 
